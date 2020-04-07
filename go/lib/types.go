@@ -11,7 +11,7 @@ const (
 	AuthBaseVestingAccount                       = "auth/BaseVestingAccount"
 	AuthContinuousVestingAccount                 = "auth/ContinuousVestingAccount"
 	AuthDelayedVestingAccount                    = "auth/DelayedVestingAccount"
-	AuthStdTx                                    = "auth/StdTx"
+	AuthStdTx                                    = "cosmos-sdk/StdTx"
 	CosmosSdkBaseAccount                         = "cosmos-sdk/BaseAccount"
 	CosmosSdkBaseVestingAccount                  = "cosmos-sdk/BaseVestingAccount"
 	CosmosSdkContinuousVestingAccount            = "cosmos-sdk/ContinuousVestingAccount"
