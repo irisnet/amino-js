@@ -2,15 +2,26 @@ package extensions
 
 import (
 	sdk "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/bank"
 )
+
+// Input defines the properties of order's input
+type Input struct {
+	Address sdk.AccAddress `json:"address" yaml:"address"` // address of input
+	Coin    sdk.Coin       `json:"coin" yaml:"coin"`       // coins of input
+}
+
+// Output defines the properties of order's output
+type Output struct {
+	Address sdk.AccAddress `json:"address" yaml:"address"` // address of output
+	Coin    sdk.Coin       `json:"coin" yaml:"coin"`       // coins of output
+}
 
 // MsgSwapOrder represents a msg for swap order
 type MsgSwapOrder struct {
-	Input      bank.Input  `json:"input" yaml:"input"`               // the amount the sender is trading
-	Output     bank.Output `json:"output" yaml:"output"`             // the amount the sender is receiving
-	Deadline   int64       `json:"deadline" yaml:"deadline"`         // deadline for the transaction to still be considered valid
-	IsBuyOrder bool        `json:"is_buy_order" yaml:"is_buy_order"` // boolean indicating whether the order should be treated as a buy or sell
+	Input      Input  `json:"input" yaml:"input"`               // the amount the sender is trading
+	Output     Output `json:"output" yaml:"output"`             // the amount the sender is receiving
+	Deadline   int64  `json:"deadline" yaml:"deadline"`         // deadline for the transaction to still be considered valid
+	IsBuyOrder bool   `json:"is_buy_order" yaml:"is_buy_order"` // boolean indicating whether the order should be treated as a buy or sell
 }
 
 // MsgAddLiquidity - struct for adding liquidity to a reserve pool
