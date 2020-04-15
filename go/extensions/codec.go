@@ -34,5 +34,8 @@ func RegisterCodec(codec *amino.Codec) {
 	codec.RegisterConcrete(&MsgAddLiquidity{}, "irismod/coinswap/MsgAddLiquidity", nil)
 	codec.RegisterConcrete(&MsgRemoveLiquidity{}, "irismod/coinswap/MsgRemoveLiquidity", nil)
 	codec.RegisterConcrete(&CoinswapParams{}, "irismod/coinswap/Params", nil)
+	codec.RegisterConcrete(&MsgCreateHTLC{}, "irishub/htlc/MsgCreateHTLC", nil)
+	codec.RegisterConcrete(&MsgClaimHTLC{}, "irishub/htlc/MsgClaimHTLC", nil)
+	codec.RegisterConcrete(&MsgRefundHTLC{}, "irishub/htlc/MsgRefundHTLC", nil)
 
 }
