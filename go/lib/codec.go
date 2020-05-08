@@ -7,15 +7,15 @@ import (
 
 	types "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/types"
 
-	// auth "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/auth"
-	// bank "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/bank"
+	auth "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/auth"
+	bank "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/bank"
 	crisis "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/crisis"
-	// distribution "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/distribution/types"
-	// gov "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/gov/types"
-	// ibc "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/ibc"
-	// params "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/params/types"
-	// slashing "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/slashing"
-	// staking "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/staking/types"
+	distribution "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/distribution/types"
+	gov "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/gov/types"
+	ibc "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/ibc"
+	params "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/params/types"
+	slashing "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/slashing"
+	staking "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/x/staking/types"
 
 	tm_crypto "github.com/cosmos/amino-js/go/lib/tendermint/tendermint/crypto"
 	tm_ed25519 "github.com/cosmos/amino-js/go/lib/tendermint/tendermint/crypto/ed25519"
@@ -56,19 +56,19 @@ func RegisterCodec(codec *amino.Codec) {
 
 	// cosmos/cosmos-sdk/x/auth/codec.go
 
-	// codec.RegisterInterface((*auth.Account)(nil), nil)
-	// codec.RegisterInterface((*auth.VestingAccount)(nil), nil)
+	codec.RegisterInterface((*auth.Account)(nil), nil)
+	codec.RegisterInterface((*auth.VestingAccount)(nil), nil)
 
-	// codec.RegisterConcrete(&auth.BaseAccount{},              AuthAccount, nil)
-	// codec.RegisterConcrete(&auth.BaseVestingAccount{},       AuthBaseVestingAccount, nil)
-	// codec.RegisterConcrete(&auth.ContinuousVestingAccount{}, AuthContinuousVestingAccount, nil)
-	// codec.RegisterConcrete(&auth.DelayedVestingAccount{},    AuthDelayedVestingAccount, nil)
-	// codec.RegisterConcrete(auth.StdTx{},                     AuthStdTx, nil)
+	codec.RegisterConcrete(&auth.BaseAccount{}, AuthAccount, nil)
+	codec.RegisterConcrete(&auth.BaseVestingAccount{}, AuthBaseVestingAccount, nil)
+	codec.RegisterConcrete(&auth.ContinuousVestingAccount{}, AuthContinuousVestingAccount, nil)
+	codec.RegisterConcrete(&auth.DelayedVestingAccount{}, AuthDelayedVestingAccount, nil)
+	codec.RegisterConcrete(auth.StdTx{}, AuthStdTx, nil)
 
 	// // cosmos/cosmos-sdk/x/bank/codec.go
 
-	// codec.RegisterConcrete(bank.MsgSend{},      CosmosSdkMsgSend, nil)
-	// codec.RegisterConcrete(bank.MsgMultiSend{}, CosmosSdkMsgMultiSend, nil)
+	codec.RegisterConcrete(bank.MsgSend{}, CosmosSdkMsgSend, nil)
+	codec.RegisterConcrete(bank.MsgMultiSend{}, CosmosSdkMsgMultiSend, nil)
 
 	// cosmos/cosmos-sdk/x/crisis/codec.go
 
@@ -76,40 +76,40 @@ func RegisterCodec(codec *amino.Codec) {
 
 	// cosmos/cosmos-sdk/x/distribution/types/codec.go
 
-	// codec.RegisterConcrete(distribution.MsgWithdrawDelegatorReward{},     CosmosSdkMsgWithdrawDelegationReward, nil)
-	// codec.RegisterConcrete(distribution.MsgWithdrawValidatorCommission{}, CosmosSdkMsgWithdrawValidatorCommission, nil)
-	// codec.RegisterConcrete(distribution.MsgSetWithdrawAddress{},          CosmosSdkMsgModifyWithdrawAddress, nil)
+	codec.RegisterConcrete(distribution.MsgWithdrawDelegatorReward{}, CosmosSdkMsgWithdrawDelegationReward, nil)
+	codec.RegisterConcrete(distribution.MsgWithdrawValidatorCommission{}, CosmosSdkMsgWithdrawValidatorCommission, nil)
+	codec.RegisterConcrete(distribution.MsgSetWithdrawAddress{}, CosmosSdkMsgModifyWithdrawAddress, nil)
 
-	// // cosmos/cosmos-sdk/x/gov/types/codec.go
+	// cosmos/cosmos-sdk/x/gov/types/codec.go
 
-	// codec.RegisterInterface((*gov.Content)(nil), nil)
+	codec.RegisterInterface((*gov.Content)(nil), nil)
 
-	// codec.RegisterConcrete(gov.MsgSubmitProposal{},       CosmosSdkMsgSubmitProposal, nil)
-	// codec.RegisterConcrete(gov.MsgDeposit{},              CosmosSdkMsgDeposit, nil)
-	// codec.RegisterConcrete(gov.MsgVote{},                 CosmosSdkMsgVote, nil)
-	// codec.RegisterConcrete(gov.TextProposal{},            CosmosSdkTextProposal, nil)
-	// codec.RegisterConcrete(gov.SoftwareUpgradeProposal{}, CosmosSdkSoftwareUpgradeProposal, nil)
+	codec.RegisterConcrete(gov.MsgSubmitProposal{}, CosmosSdkMsgSubmitProposal, nil)
+	codec.RegisterConcrete(gov.MsgDeposit{}, CosmosSdkMsgDeposit, nil)
+	codec.RegisterConcrete(gov.MsgVote{}, CosmosSdkMsgVote, nil)
+	codec.RegisterConcrete(gov.TextProposal{}, CosmosSdkTextProposal, nil)
+	codec.RegisterConcrete(gov.SoftwareUpgradeProposal{}, CosmosSdkSoftwareUpgradeProposal, nil)
 
-	// // cosmos/cosmos-sdk/x/ibc/codec.go
+	// cosmos/cosmos-sdk/x/ibc/codec.go
 
-	// codec.RegisterConcrete(ibc.MsgIBCTransfer{}, CosmosSdkMsgIBCTransfer, nil)
-	// codec.RegisterConcrete(ibc.MsgIBCReceive{},  CosmosSdkMsgIBCReceive, nil)
+	codec.RegisterConcrete(ibc.MsgIBCTransfer{}, CosmosSdkMsgIBCTransfer, nil)
+	codec.RegisterConcrete(ibc.MsgIBCReceive{}, CosmosSdkMsgIBCReceive, nil)
 
-	// // cosmos/cosmos-sdk/x/params/types/codec.go
+	// cosmos/cosmos-sdk/x/params/types/codec.go
 
-	// codec.RegisterConcrete(params.ParameterChangeProposal{}, CosmosSdkParameterChangeProposal, nil)
+	codec.RegisterConcrete(params.ParameterChangeProposal{}, CosmosSdkParameterChangeProposal, nil)
 
-	// // cosmos/cosmos-sdk/x/slashing/codec.go
+	// cosmos/cosmos-sdk/x/slashing/codec.go
 
-	// codec.RegisterConcrete(slashing.MsgUnjail{}, CosmosSdkMsgUnjail, nil)
+	codec.RegisterConcrete(slashing.MsgUnjail{}, CosmosSdkMsgUnjail, nil)
 
-	// // cosmos/cosmos-sdk/x/staking/types/codec.go
+	// cosmos/cosmos-sdk/x/staking/types/codec.go
 
-	// codec.RegisterConcrete(staking.MsgCreateValidator{}, CosmosSdkMsgCreateValidator, nil)
-	// codec.RegisterConcrete(staking.MsgEditValidator{},   CosmosSdkMsgEditValidator, nil)
-	// codec.RegisterConcrete(staking.MsgDelegate{},        CosmosSdkMsgDelegate, nil)
-	// codec.RegisterConcrete(staking.MsgUndelegate{},      CosmosSdkMsgUndelegate, nil)
-	// codec.RegisterConcrete(staking.MsgBeginRedelegate{}, CosmosSdkMsgBeginRedelegate, nil)
+	codec.RegisterConcrete(staking.MsgCreateValidator{}, CosmosSdkMsgCreateValidator, nil)
+	codec.RegisterConcrete(staking.MsgEditValidator{}, CosmosSdkMsgEditValidator, nil)
+	codec.RegisterConcrete(staking.MsgDelegate{}, CosmosSdkMsgDelegate, nil)
+	codec.RegisterConcrete(staking.MsgUndelegate{}, CosmosSdkMsgUndelegate, nil)
+	codec.RegisterConcrete(staking.MsgBeginRedelegate{}, CosmosSdkMsgBeginRedelegate, nil)
 
 	// tendermint/tendermint/blockchain/reactor.go
 
