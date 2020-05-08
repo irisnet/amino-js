@@ -3,7 +3,6 @@ package auth
 import (
 	"encoding/json"
 	sdk "github.com/cosmos/amino-js/go/lib/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/amino-js/go/lib/tendermint/tendermint/crypto"
 )
 
 var _ sdk.Tx = (*StdTx)(nil)
@@ -30,6 +29,6 @@ type StdSignDoc struct {
 }
 
 type StdSignature struct {
-	crypto.PubKey `json:"pub_key"` // optional
-	Signature     []byte `json:"signature"`
+	PubKey    []byte `json:"pub_key"`
+	Signature []byte `json:"signature"`
 }

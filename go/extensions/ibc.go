@@ -12,13 +12,13 @@ type MsgTransfer struct {
 	DestHeight    uint64         `json:"dest_height" yaml:"dest_height"`       // the current height of the destination chain
 	Amount        sdk.Coins      `json:"amount" yaml:"amount"`                 // the tokens to be transferred
 	Sender        sdk.AccAddress `json:"sender" yaml:"sender"`                 // the sender address
-	Receiver      sdk.AccAddress `json:"receiver" yaml:"receiver"`             // the recipient address on the destination chain
+	Receiver      string         `json:"receiver" yaml:"receiver"`             // the recipient address on the destination chain
 }
 
 // FungibleTokenPacketData defines a struct for the packet payload
 // See FungibleTokenPacketData spec: https://github.com/cosmos/ics/tree/master/spec/ics-020-fungible-token-transfer#data-structures
 type FungibleTokenPacketData struct {
-	Amount   sdk.Coins      `json:"amount" yaml:"amount"`     // the tokens to be transferred
-	Sender   sdk.AccAddress `json:"sender" yaml:"sender"`     // the sender address
-	Receiver sdk.AccAddress `json:"receiver" yaml:"receiver"` // the recipient address on the destination chain
+	Amount   sdk.Coins `json:"amount" yaml:"amount"`     // the tokens to be transferred
+	Sender   string    `json:"sender" yaml:"sender"`     // the sender address
+	Receiver string    `json:"receiver" yaml:"receiver"` // the recipient address on the destination chain
 }

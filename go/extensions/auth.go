@@ -63,6 +63,6 @@ type StdSignDoc struct {
 
 // StdSignature Standard Signature
 type StdSignature struct {
-	crypto.PubKey `json:"pub_key"` // optional
-	Signature     []byte           `json:"signature"`
+	PubKey    []byte `json:"pub_key"`
+	Signature []byte `json:"signature"`
 }

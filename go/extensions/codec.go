@@ -36,5 +36,5 @@ func RegisterCodec(codec *amino.Codec) {
 	codec.RegisterConcrete(&MsgRemoveLiquidity{}, "irismod/coinswap/MsgRemoveLiquidity", nil)
 	codec.RegisterConcrete(&CoinswapParams{}, "irismod/coinswap/Params", nil)
 	codec.RegisterConcrete(&MsgTransfer{}, "ibc/transfer/MsgTransfer", nil)
-	codec.RegisterConcrete(&FungibleTokenPacketData{}, "ibc/transfer/PacketDataTransfer", nil)
+	codec.RegisterConcrete(FungibleTokenPacketData{}, "ibc/transfer/PacketDataTransfer", nil)
 }
