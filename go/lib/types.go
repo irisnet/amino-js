@@ -36,6 +36,7 @@ const (
 	CosmosSdkMsgDelegate                         = "cosmos-sdk/MsgDelegate"
 	CosmosSdkMsgUndelegate                       = "cosmos-sdk/MsgUndelegate"
 	CosmosSdkMsgBeginRedelegate                  = "cosmos-sdk/MsgBeginRedelegate"
+	CosmosSdkMsgMsgTransfer                      = "ibc/transfer/MsgTransfer"
 	TendermintBlockchainBlockRequest             = "tendermint/blockchain/BlockRequest"
 	TendermintBlockchainBlockResponse            = "tendermint/blockchain/BlockResponse"
 	TendermintBlockchainNoBlockResponse          = "tendermint/blockchain/NoBlockResponse"

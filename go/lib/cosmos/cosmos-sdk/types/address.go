@@ -15,7 +15,7 @@ import (
 
 const (
 	AddrLen = 20
-	Bech32PrefixAccAddr = "faa"
+	Bech32PrefixAccAddr = "cosmos"
 	Bech32PrefixAccPub = "fap"
 	Bech32PrefixValAddr = "fva"
 	Bech32PrefixValPub = "fvp"
